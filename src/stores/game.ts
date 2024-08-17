@@ -10,7 +10,9 @@ export const useGameStore = defineStore('game', {
   getters: {
     getGameBySearchCriteria: (state: GameState) => {
       return (searchCriteria: string) =>
-        state.games.filter((game) => game.name.trim().toLocaleLowerCase().includes(searchCriteria))
+        state.games.filter((game) =>
+          game.name.trim().toLocaleLowerCase().includes(searchCriteria.trim().toLocaleLowerCase())
+        )
     },
     getGames: (state: GameState) => state.games
   },
