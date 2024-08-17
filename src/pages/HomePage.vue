@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import LatestGame from '@/components/LatestGame.vue'
 </script>
 
 <template>
-    welcome to the home page
+    <!-- Latest game component -->
+    <LatestGame />
 </template>
 
 <style scoped></style>

@@ -1,6 +1,7 @@
 import HomePage from '@/pages/HomePage.vue'
 import ChatPage from '@/pages/ChatPage.vue'
 import AccountPage from '@/pages/AccountPage.vue'
+import LibraryPage from '@/pages/LibraryPage.vue'
 
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/account',
       name: 'account',
       component: AccountPage
+    },
+    {
+      path: '/library',
+      name: 'library',
+      component: LibraryPage
     }
     // {
     //   path: '/about',

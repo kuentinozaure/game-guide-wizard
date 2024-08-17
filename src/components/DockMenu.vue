@@ -11,7 +11,8 @@ type DockItem = {
 const items: DockItem[] = [
     { label: 'Home', icon: 'pi pi-home', command: () => { router.push('/home') } },
     { label: 'Account', icon: 'pi pi-user', command: () => { router.push('/account') } },
-    { label: 'Chat', icon: 'pi pi-comments', command: () => { router.push('/chat') } }
+    { label: 'Chat', icon: 'pi pi-comments', command: () => { router.push('/chat') } },
+    { label: 'Library', icon: 'pi pi-book', command: () => { router.push('/library') } }
 ]
 
 const onDockItemClick = (event: MouseEvent, item: DockItem) => {

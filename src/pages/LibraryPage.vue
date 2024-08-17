@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    Welcome to your account page
+    Welcome to your library page
 </template>
 
 <style scoped></style>
