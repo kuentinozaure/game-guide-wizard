@@ -6,37 +6,32 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Button from 'primevue/button';
 import router from '@/router';
+import type { Game } from '@/type/Game';
+import { useGameStore } from '@/stores/game';
+import { ref } from 'vue';
 
-type Game = {
-    name: string;
-    price: number;
-    added: string;
-    rating: number;
-    place: string;
-}
-const value = ''
 
-const games: Game[] = [
-    { name: 'Splendor', price: 3.50, added: '2023-10-02', rating: 0, place: 'Renaissance Masson' },
-    { name: 'Dobble', price: 12.95, added: '2023-11-05', rating: 3, place: 'Divertioz' },
-    { name: 'Monopoly Simpsons', price: 3.50, added: '2023-01-03', rating: 4, place: 'Renaissance Pie 9' },
-    { name: 'Uno Flip', price: 2.95, added: '2024-01-03', rating: 3, place: 'Renaissance Masson' },
-]
+let userSearch = '';
+
+let games = ref<Game[]>(useGameStore().getGames);
 
 const onSearch = (typedSearch: string) => {
-    console.log('searching for', typedSearch)
+    userSearch = typedSearch
+    games.value = useGameStore().getGameBySearchCriteria(userSearch);
 }
+
 
 const onCreateGame = () => {
     router.push('/game')
 }
+
 </script>
 
 <template>
     <div class="search-field-container">
-        <IconField v-on:keyup.enter="onSearch(value)">
+        <IconField v-on:keyup.enter="onSearch(userSearch)">
             <InputIcon class="pi pi-search" />
-            <InputText v-model="value" placeholder="Search" />
+            <InputText v-model="userSearch" placeholder="Search" />
             <!-- To do implement the loader after we have a db -->
             <!-- <InputIcon class="pi pi-spin pi-spinner" />
           -->

@@ -3,19 +3,11 @@ import Panel from 'primevue/panel';
 import Card from 'primevue/card';
 import Rating from 'primevue/rating';
 import router from '@/router';
+import type { Game } from '@/type/Game';
+import { useGameStore } from '@/stores/game';
 
-type Game = {
-    name: string;
-    lastPlay: string;
-    rating: number;
-}
 
-const lastGamePlayed: Game[] = [
-    { name: 'Splendor', lastPlay: 'Today', rating: 3 },
-    { name: 'Uno Flip', lastPlay: 'A hour ago', rating: 5 },
-    { name: 'Dobble', lastPlay: '5 days ago', rating: 4 },
-    { name: 'Monopoly', lastPlay: 'A while ...', rating: 3 },
-]
+const lastGamePlayed: Game[] = useGameStore().getGames
 
 const goToGameLibrary = () => {
     router.push('/library');
