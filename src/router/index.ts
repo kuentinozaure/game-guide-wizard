@@ -1,7 +1,7 @@
 import HomePage from '@/pages/HomePage.vue'
 import ChatPage from '@/pages/ChatPage.vue'
 import AccountPage from '@/pages/AccountPage.vue'
-import LibraryPage from '@/pages/LibraryPage.vue'
+import NewGamePage from '@/pages/NewGamePage.vue'
 
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -29,9 +29,9 @@ const router = createRouter({
       component: AccountPage
     },
     {
-      path: '/library',
-      name: 'library',
-      component: LibraryPage
+      path: '/game',
+      name: 'game',
+      component: NewGamePage
     }
     // {
     //   path: '/about',

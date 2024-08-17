@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    Welcome to your library page
+    Welcome to the new game page
 </template>
 
 <style scoped></style>

@@ -5,7 +5,12 @@ import DockMenu from './components/DockMenu.vue'
 
 <template>
   <RouterView />
-  <DockMenu />
+  <DockMenu class="dock-menu" />
 </template>
 
-<style scoped></style>
+<style scoped>
+.dock-menu {
+  position: fixed;
+  bottom: 0;
+}
+</style>
