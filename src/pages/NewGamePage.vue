@@ -9,7 +9,7 @@ import Button from 'primevue/button';
 import router from '@/router';
 import { ref } from 'vue';
 import { useGameStore } from '@/stores/game';
-import { Game } from '@/type/Game';
+import type { Game } from '@/type/Game';
 import Toast from 'primevue/toast';
 import { useToast } from 'primevue/usetoast';
 
