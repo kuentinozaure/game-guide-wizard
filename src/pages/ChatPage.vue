@@ -2,11 +2,15 @@
 import Textarea from 'primevue/textarea';
 import Panel from 'primevue/panel';
 import Button from 'primevue/button';
+import { ref } from 'vue';
+import axios from 'axios';
+
 
 let userSearch = '';
+let aiResponse = ref<string>('');
 
-const onSearch = () => {
-    console.log('Searching ...');
+const onSearch = async () => {
+    aiResponse.value = (await axios.get(`http://localhost:3000?prompt=${userSearch}`)).data
     userSearch = '';
 }
 </script>
@@ -15,12 +19,7 @@ const onSearch = () => {
     <div class="question-container">
         <Panel header="Response to your answer" class="answer-container ">
             <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                id est laborum.
+                {{ aiResponse }}
             </p>
         </Panel>
         <div class="question-field">
