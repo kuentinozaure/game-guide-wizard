@@ -10,7 +10,7 @@ import { useGameStore } from '@/stores/game';
 const lastGamePlayed: Game[] = useGameStore().getGames
 
 const goToGameLibrary = () => {
-    router.push('/library');
+    router.push('/game');
 }
 </script>
 
