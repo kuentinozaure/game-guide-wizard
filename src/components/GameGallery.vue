@@ -8,17 +8,12 @@ import Button from 'primevue/button';
 import router from '@/router';
 import type { Game } from '@/type/Game';
 import { useGameStore } from '@/stores/game';
-import { onMounted, ref } from 'vue';
-import axios from 'axios';
+import { ref } from 'vue';
 
 
 let userSearch = '';
 let games = ref<Game[]>(useGameStore().getGames);
 
-onMounted(async () => {
-    games.value = (await axios.get('http://localhost:3000/game')).data
-    useGameStore().addGames(games.value)
-});
 
 const onSearch = (typedSearch: string) => {
     userSearch = typedSearch
