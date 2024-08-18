@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Textarea from 'primevue/textarea';
 import Panel from 'primevue/panel';
 import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
@@ -10,7 +9,7 @@ let userSearch = '';
 let aiResponse = ref<string>('');
 
 const onSearch = async () => {
-    aiResponse.value = (await axios.get(`http://localhost:3000?prompt=${userSearch}`)).data
+    aiResponse.value = (await axios.get(`http://localhost:3000/game-guide?prompt=${userSearch}`)).data
     userSearch = '';
 }
 </script>
@@ -40,7 +39,6 @@ const onSearch = async () => {
                 v-on:keyup.enter="onSearch()" />
             <Button icon="pi pi-search" iconPos="top" @click="onSearch()" />
         </div>
-
     </div>
 
 </template>

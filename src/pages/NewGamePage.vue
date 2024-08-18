@@ -12,6 +12,7 @@ import { useGameStore } from '@/stores/game';
 import type { Game } from '@/type/Game';
 import Toast from 'primevue/toast';
 import { useToast } from 'primevue/usetoast';
+import axios from 'axios';
 
 const toast = useToast();
 
@@ -24,9 +25,10 @@ const gameForm = ref<Game>({
     lastPlay: 'n/a',
 });
 
-const onSubmit = () => {
+const onSubmit = async () => {
     if (gameForm.value.name !== '') {
-        useGameStore().addGame(gameForm.value);
+        const createdGame = await axios.post('http://localhost:3000/game', gameForm.value);
+        useGameStore().addGame(createdGame.data);
         router.push('/home');
     } else {
         toast.add({ severity: 'contrast', summary: 'Oops, You must fill your game name', group: 'br', life: 3000 });

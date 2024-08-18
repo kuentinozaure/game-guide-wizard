@@ -1,4 +1,3 @@
-import { GameMock } from '@/mock/GameMock'
 import type { Game } from '@/type/Game'
 import { defineStore } from 'pinia'
 
@@ -6,7 +5,7 @@ type GameState = {
   games: Game[]
 }
 export const useGameStore = defineStore('game', {
-  state: () => ({ games: GameMock }) as GameState,
+  state: () => ({ games: [] }) as GameState,
   getters: {
     getGameBySearchCriteria: (state: GameState) => {
       return (searchCriteria: string) =>
@@ -19,6 +18,9 @@ export const useGameStore = defineStore('game', {
   actions: {
     addGame(game: Game) {
       this.games.push(game)
+    },
+    addGames(games: Game[]) {
+      this.games.push(...games)
     }
   }
 })
