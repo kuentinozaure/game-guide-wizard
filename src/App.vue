@@ -7,7 +7,7 @@ import { useGameStore } from './stores/game';
 
 
 onMounted(async () => {
-  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000/'
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'
   useGameStore().addGames((await axios.get(`${backendUrl}/game`)).data)
 });
 
