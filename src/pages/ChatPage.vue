@@ -9,7 +9,8 @@ let userSearch = '';
 let aiResponse = ref<string>('');
 
 const onSearch = async () => {
-    aiResponse.value = (await axios.get(`http://localhost:3000/game-guide?prompt=${userSearch}`)).data
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000/'
+    aiResponse.value = (await axios.get(`${backendUrl}game-guide?prompt=${userSearch}`)).data
     userSearch = '';
 }
 </script>

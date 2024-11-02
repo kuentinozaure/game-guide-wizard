@@ -27,7 +27,8 @@ const gameForm = ref<Game>({
 
 const onSubmit = async () => {
     if (gameForm.value.name !== '') {
-        const createdGame = await axios.post('http://localhost:3000/game', gameForm.value);
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000/'
+        const createdGame = await axios.post(backendUrl, gameForm.value);
         useGameStore().addGame(createdGame.data);
         router.push('/home');
     } else {

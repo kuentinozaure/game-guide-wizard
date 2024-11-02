@@ -5,8 +5,10 @@ import { onMounted } from 'vue';
 import axios from 'axios';
 import { useGameStore } from './stores/game';
 
+
 onMounted(async () => {
-  useGameStore().addGames((await axios.get('http://localhost:3000/game')).data)
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000/'
+  useGameStore().addGames((await axios.get(`${backendUrl}/game`)).data)
 });
 
 </script>
